@@ -1,0 +1,48 @@
+<%= link_to "Log Out", "/signout" %> <br />
+<div class = "col-md-12">
+
+<div class = "col-md-7">
+
+<%= image_tag(@user.avatar_url) %> <br />
+
+<div style="margin-top: 20px;">
+ <h3>Repositories: </h3>
+</div>
+
+
+<% @repos.each do |repo| %>
+  <li>Repo Name <%= repo.full_name%>
+<% end %>
+
+<div style="margin-top: 20px;">
+ <h3>Follow Feed: </h3>
+</div>
+
+<% @follower_feeds.each do |feed| %>
+  <li>Follower Feed <%= feed.repo.name %><%= feed.created_at %></li>
+<% end %>
+</div>
+
+
+<div class = "col-md-5">
+
+
+<p>User Name: <%= @user.login %></p>
+<p> Number of starred repos <%= @starred_repos_count %> </p>
+<p>Followers: <%= @user.followers %></p>
+<p>Following: <%= @user.following %></p>
+
+<p>Commit History: </p>
+</p>
+ <% @feeds.each do |commit| %>
+ <li>ID <%= commit.id%>
+ <% end %>
+ <li>Organizations: </li>
+ <% @orgs.each do |org| %>
+ <li> <%= org %>
+ <% end %>
+  </div>
+</div>
+<p></p>
+<p></p>
+<p></p>
